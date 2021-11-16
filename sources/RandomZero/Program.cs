@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RandomZero
+namespace DustInTheWind.RandomToZero
 {
     internal class Program
     {
