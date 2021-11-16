@@ -25,7 +25,7 @@ namespace DustInTheWind.RandomProblems
         {
             const int count = 100_000;
 
-            List<RandomNumbersList> randoms = GenerateInstances(count);
+            List<RandomNumbersList> randomNumbersLists = GenerateInstances(count);
         }
 
         private static List<RandomNumbersList> GenerateInstances(int count)
