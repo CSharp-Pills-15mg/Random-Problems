@@ -1,13 +1,13 @@
 ﻿using System.Threading.Tasks;
 
-namespace DustInTheWind.TheBadTwin
+namespace DustInTheWind.Step03_ThreadStaticSolution
 {
     internal class Program
     {
         private static async Task Main(string[] args)
         {
-            Demo demo = new Demo();
-            await demo.Execute();
+            Problem problem = new Problem();
+            await problem.Execute();
         }
     }
 }

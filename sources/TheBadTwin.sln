@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBadTwin", "TheBadTwin\TheBadTwin.csproj", "{DE9A70D3-FB33-4B7F-8530-CA6B39F7B4EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step01_TheBadTwinProblem", "Step01_TheBadTwinProblem\Step01_TheBadTwinProblem.csproj", "{DE9A70D3-FB33-4B7F-8530-CA6B39F7B4EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomZero", "RandomZero\RandomZero.csproj", "{F2280144-B958-4716-A421-DC395DAC8CC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step02_MultithreadingProblem", "Step02_MultithreadingProblem\Step02_MultithreadingProblem.csproj", "{958F3AF2-34BE-4142-AB1B-476A2984BDBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step03_ThreadStaticSolution", "Step03_ThreadStaticSolution\Step03_ThreadStaticSolution.csproj", "{C956DD2C-C02F-48FC-88BE-5853053EDEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step04_ThreadLocalSolution", "Step04_ThreadLocalSolution\Step04_ThreadLocalSolution.csproj", "{871AB722-CC02-4698-8D43-514A96A23DE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{DE9A70D3-FB33-4B7F-8530-CA6B39F7B4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE9A70D3-FB33-4B7F-8530-CA6B39F7B4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE9A70D3-FB33-4B7F-8530-CA6B39F7B4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2280144-B958-4716-A421-DC395DAC8CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2280144-B958-4716-A421-DC395DAC8CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2280144-B958-4716-A421-DC395DAC8CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2280144-B958-4716-A421-DC395DAC8CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958F3AF2-34BE-4142-AB1B-476A2984BDBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958F3AF2-34BE-4142-AB1B-476A2984BDBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958F3AF2-34BE-4142-AB1B-476A2984BDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958F3AF2-34BE-4142-AB1B-476A2984BDBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C956DD2C-C02F-48FC-88BE-5853053EDEE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C956DD2C-C02F-48FC-88BE-5853053EDEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C956DD2C-C02F-48FC-88BE-5853053EDEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C956DD2C-C02F-48FC-88BE-5853053EDEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{871AB722-CC02-4698-8D43-514A96A23DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{871AB722-CC02-4698-8D43-514A96A23DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{871AB722-CC02-4698-8D43-514A96A23DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{871AB722-CC02-4698-8D43-514A96A23DE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
