@@ -18,18 +18,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.TheBadTwinProblem.Business.RandomNumbers
 {
     internal class RandomNumbersList : IEnumerable<int>
     {
-        // A possible solution to our problem could be to make the `Random` instance static, isn't it?
-        // If there is a single instance, there is no other instance with the same seed, because
+        // A possible solution to our bad twin problem could be to make the `Random` instance static, isn't it?
+        // If there is a single instance, there is no twin instance with the same seed, because
         // there is no other instance.
         //
-        // If you run the program it may seam to work perfectly, but, this solution, generates another problem.
-        // The `Random` class is not thread safe. If the RandomNumbersList is used from multiple threads, we have a problem.
-        // See the "RandomProblems.MultithreadingProblem" project for more details.
-        private static readonly Random random = new();
+        // If you run the program it may seem to work perfectly, but this solution generates another problem.
+        // The `Random` class is not thread safe. If the RandomNumbersList is used from multiple threads, it is not good.
+        // We may fix it by adding a `lock` on the Random instance whenever we use it, isn't it.
+        //
+        // See the "the-bad-twin-solution-01b-lock-on-random" branch for the `lock` solution.
+        // See the "RandomProblems.MultiThreadingProblem" project for more details regarding the multi-threading problem and other solutions.
+        private static readonly Random Random = new();
 
         private readonly List<int> numbers = new();
 
@@ -54,9 +57,9 @@ namespace DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers
 
             // A `lock` must be added each time the Random instance is used.
             // This indeed fixes the multi-threading problem, but the lock is slow and there is another solution.
-            // See the "RandomProblems.MultithreadingProblem" project for more details.
-            lock (random)
-                number = random.Next();
+            // See the "RandomProblems.MultiThreadingProblem" project for more details.
+            lock (Random)
+                number = Random.Next();
 
             numbers.Add(number);
             return number;

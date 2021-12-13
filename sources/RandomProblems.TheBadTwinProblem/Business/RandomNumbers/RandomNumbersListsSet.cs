@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.TheBadTwinProblem.Business.RandomNumbers
 {
     internal class RandomNumbersListsSet
     {

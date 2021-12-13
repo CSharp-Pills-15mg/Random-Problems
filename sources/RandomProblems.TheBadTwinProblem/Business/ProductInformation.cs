@@ -17,7 +17,7 @@
 using System;
 using System.Reflection;
 
-namespace DustInTheWind.RandomProblems.TheBadTwin.Business
+namespace DustInTheWind.RandomProblems.TheBadTwinProblem.Business
 {
     internal class ProductInformation
     {

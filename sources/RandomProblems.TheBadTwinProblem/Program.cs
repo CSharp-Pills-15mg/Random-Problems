@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using DustInTheWind.RandomProblems.TheBadTwin.Business;
-using DustInTheWind.RandomProblems.TheBadTwin.Presentation;
+using DustInTheWind.RandomProblems.TheBadTwinProblem.Business;
+using DustInTheWind.RandomProblems.TheBadTwinProblem.Presentation;
 
-namespace DustInTheWind.RandomProblems.TheBadTwin
+namespace DustInTheWind.RandomProblems.TheBadTwinProblem
 {
     internal class Program
     {
