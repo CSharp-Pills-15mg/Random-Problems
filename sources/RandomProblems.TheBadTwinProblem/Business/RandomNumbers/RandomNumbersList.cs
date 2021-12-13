@@ -50,7 +50,14 @@ namespace DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers
 
         public int GenerateNext()
         {
-            int number = random.Next();
+            int number;
+
+            // A `lock` must be added each time the Random instance is used.
+            // This indeed fixes the multi-threading problem, but the lock is slow and there is another solution.
+            // See the "RandomProblems.MultithreadingProblem" project for more details.
+            lock (random)
+                number = random.Next();
+
             numbers.Add(number);
             return number;
         }
