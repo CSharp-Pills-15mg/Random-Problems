@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using DustInTheWind.RandomProblems.Business.RandomNumbers;
 using DustInTheWind.RandomProblems.Presentation;
@@ -33,13 +34,13 @@ namespace DustInTheWind.RandomProblems.Business
         public async Task Execute()
         {
             RandomNumbersListsSet randomNumbersListsSet = GenerateLists(300_000);
-            await randomNumbersListsSet.GenerateValuesInEachList(10);
-            view.Display(randomNumbersListsSet);
+            await GenerateManyValuesInParallel(randomNumbersListsSet, 10);
+            ExportAllValues(randomNumbersListsSet);
         }
 
         private RandomNumbersListsSet GenerateLists(int count)
         {
-            view.DisplayBeginGeneratingMessage(count);
+            view.DisplayBeginGeneratingLists(count);
 
             try
             {
@@ -47,7 +48,43 @@ namespace DustInTheWind.RandomProblems.Business
             }
             finally
             {
-                view.DisplayEndGeneratingMessage(count);
+                view.DisplayEndGeneratingLists(count);
+            }
+        }
+
+        private async Task GenerateManyValuesInParallel(RandomNumbersListsSet randomNumbersListsSet, int countPerList)
+        {
+            view.DisplayBeginGeneratingNumbers(countPerList);
+
+            try
+            {
+                await randomNumbersListsSet.GenerateValuesInEachList(countPerList);
+            }
+            finally
+            {
+                view.DisplayEndGeneratingNumbers(countPerList);
+            }
+        }
+
+        private void ExportAllValues(RandomNumbersListsSet randomNumbersListsSet)
+        {
+            const string exportFileName = "results.txt";
+
+            view.DisplayBeginExport(exportFileName);
+
+            try
+            {
+                using StreamWriter streamWriter = new(exportFileName);
+
+                foreach (RandomNumbersList randomNumbersList in randomNumbersListsSet)
+                {
+                    string numbersAsString = string.Join(", ", randomNumbersList);
+                    streamWriter.WriteLine(numbersAsString);
+                }
+            }
+            finally
+            {
+                view.DisplayEndExport(exportFileName);
             }
         }
     }
