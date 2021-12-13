@@ -17,10 +17,10 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using DustInTheWind.RandomProblems.Business.RandomNumbers;
-using DustInTheWind.RandomProblems.Presentation;
+using DustInTheWind.RandomProblems.MultiThreadingProblem.Business.RandomNumbers;
+using DustInTheWind.RandomProblems.MultiThreadingProblem.Presentation;
 
-namespace DustInTheWind.RandomProblems.Business
+namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Business
 {
     internal class UseCase
     {
