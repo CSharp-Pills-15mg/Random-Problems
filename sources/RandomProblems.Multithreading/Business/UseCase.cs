@@ -58,7 +58,7 @@ namespace DustInTheWind.RandomProblems.Business
 
             try
             {
-                await randomNumbersListsSet.GenerateValuesInEachList(countPerList);
+                await randomNumbersListsSet.GenerateValuesInEachListInParallel(countPerList);
             }
             finally
             {

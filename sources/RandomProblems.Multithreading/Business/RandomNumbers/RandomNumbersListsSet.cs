@@ -32,7 +32,7 @@ namespace DustInTheWind.RandomProblems.Business.RandomNumbers
                 .ToHashSet();
         }
 
-        public async Task GenerateValuesInEachList(int count)
+        public async Task GenerateValuesInEachListInParallel(int count)
         {
             List<Task> tasks = randomNumberListsSet
                 .Select(x => Task.Run(() =>
