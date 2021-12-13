@@ -31,7 +31,7 @@ namespace DustInTheWind.RandomProblems.TheBadTwinProblem.Business.RandomNumbers
         // We may fix it by adding a `lock` on the Random instance whenever we use it, isn't it.
         //
         // See the "the-bad-twin-solution-01b-lock-on-random" branch for the `lock` solution.
-        // See the "RandomProblems.MultithreadingProblem" project for more details regarding the multi-threading problem and other solutions.
+        // See the "RandomProblems.MultiThreadingProblem" project for more details regarding the multi-threading problem and other solutions.
         private static readonly Random Random = new();
 
         private readonly List<int> numbers = new();
