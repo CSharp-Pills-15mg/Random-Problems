@@ -19,7 +19,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace DustInTheWind.RandomProblems.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Business.RandomNumbers
 {
     internal class RandomNumbersList : IEnumerable<int>
     {

@@ -15,9 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using DustInTheWind.RandomProblems.TheBadTwin.Business;
+using DustInTheWind.RandomProblems.TheBadTwinProblem.Business;
 
-namespace DustInTheWind.RandomProblems.TheBadTwin.Presentation
+namespace DustInTheWind.RandomProblems.TheBadTwinProblem.Presentation
 {
     internal class ApplicationHeader
     {
