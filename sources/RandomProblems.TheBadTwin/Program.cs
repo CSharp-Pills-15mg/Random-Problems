@@ -14,35 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using DustInTheWind.RandomProblems.TheBadTwin.Business;
+using DustInTheWind.RandomProblems.TheBadTwin.Presentation;
 
-namespace DustInTheWind.RandomProblems.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.TheBadTwin
 {
-    internal class RandomNumbersList : IEnumerable<int>
+    internal class Program
     {
-        private static readonly Random Random = new();
-
-        private readonly List<int> numbers = new();
-        
-        public int this[int index] => numbers[index];
-
-        public int GenerateNext()
+        private static void Main(string[] args)
         {
-            int number = Random.Next();
-            numbers.Add(number);
-            return number;
-        }
+            ProductInformation productInformation = new();
+            ApplicationHeader applicationHeader = new(productInformation);
+            applicationHeader.Display();
 
-        public IEnumerator<int> GetEnumerator()
-        {
-            return numbers.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            UseCaseView useCaseView = new();
+            UseCase useCase = new(useCaseView);
+            useCase.Execute();
         }
     }
 }

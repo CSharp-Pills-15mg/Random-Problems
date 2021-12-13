@@ -15,34 +15,25 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Reflection;
 
-namespace DustInTheWind.RandomProblems.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.TheBadTwin.Business
 {
-    internal class RandomNumbersList : IEnumerable<int>
+    internal class ProductInformation
     {
-        private static readonly Random Random = new();
+        public string Name { get; }
 
-        private readonly List<int> numbers = new();
-        
-        public int this[int index] => numbers[index];
+        public Version Version { get; }
 
-        public int GenerateNext()
+        public ProductInformation()
         {
-            int number = Random.Next();
-            numbers.Add(number);
-            return number;
-        }
+            Assembly assembly = Assembly.GetEntryAssembly();
 
-        public IEnumerator<int> GetEnumerator()
-        {
-            return numbers.GetEnumerator();
-        }
+            AssemblyProductAttribute assemblyProductAttribute = assembly?.GetCustomAttribute<AssemblyProductAttribute>();
+            Name = assemblyProductAttribute?.Product;
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            AssemblyName assemblyName = assembly?.GetName();
+            Version = assemblyName?.Version;
         }
     }
 }

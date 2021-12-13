@@ -18,19 +18,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace DustInTheWind.RandomProblems.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers
 {
     internal class RandomNumbersList : IEnumerable<int>
     {
-        private static readonly Random Random = new();
-
+        private readonly Random random = new();
         private readonly List<int> numbers = new();
-        
+
+        public int Count => numbers.Count;
+
+        public int LastNumber
+        {
+            get
+            {
+                if (numbers.Count == 0)
+                    throw new Exception("No number was generated yet.");
+
+                return numbers[^1];
+            }
+        }
+
         public int this[int index] => numbers[index];
 
         public int GenerateNext()
         {
-            int number = Random.Next();
+            int number = random.Next();
             numbers.Add(number);
             return number;
         }
