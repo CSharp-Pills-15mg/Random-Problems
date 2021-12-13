@@ -22,7 +22,15 @@ namespace DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers
 {
     internal class RandomNumbersList : IEnumerable<int>
     {
-        private readonly Random random = new();
+        // A possible solution to our problem could be to make the `Random` instance static, isn't it?
+        // If there is a single instance, there is no other instance with the same seed, because
+        // there is no other instance.
+        //
+        // If you run the program it may seam to work perfectly, but, this solution, generates another problem.
+        // The `Random` class is not thread safe. If the RandomNumbersList is used from multiple threads, we have a problem.
+        // See the "RandomProblems.MultithreadingProblem" project for more details.
+        private static readonly Random random = new();
+
         private readonly List<int> numbers = new();
 
         public int Count => numbers.Count;
