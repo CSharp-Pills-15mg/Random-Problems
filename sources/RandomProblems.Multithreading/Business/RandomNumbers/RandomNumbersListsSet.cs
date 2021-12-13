@@ -14,14 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DustInTheWind.RandomProblems.Business.RandomNumbers
 {
-    internal class RandomNumbersListsSet
+    internal class RandomNumbersListsSet : IEnumerable<RandomNumbersList>
     {
         private readonly HashSet<RandomNumbersList> randomNumberListsSet;
 
@@ -45,17 +45,14 @@ namespace DustInTheWind.RandomProblems.Business.RandomNumbers
             await Task.WhenAll(tasks);
         }
 
-        public override string ToString()
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            StringBuilder stringBuilder = new();
+            return GetEnumerator();
+        }
 
-            foreach (RandomNumbersList randomNumbersList in randomNumberListsSet)
-            {
-                string numbersAsString = string.Join(", ", randomNumbersList);
-                stringBuilder.AppendLine(numbersAsString);
-            }
-
-            return stringBuilder.ToString();
+        public IEnumerator<RandomNumbersList> GetEnumerator()
+        {
+            return randomNumberListsSet.GetEnumerator();
         }
     }
 }
