@@ -22,6 +22,7 @@ namespace DustInTheWind.RandomProblems.Presentation
     {
         public void DisplayBeginGeneratingLists(int count)
         {
+            Console.WriteLine();
             Console.WriteLine("-> Step 1");
             Console.WriteLine($"Generating {count:N0} lists of random numbers...");
         }
@@ -33,6 +34,7 @@ namespace DustInTheWind.RandomProblems.Presentation
 
         public void DisplayBeginGeneratingNumbers(int countPerList)
         {
+            Console.WriteLine();
             Console.WriteLine("-> Step 2");
             Console.WriteLine($"Generating {countPerList:N0} numbers in each list...");
         }
@@ -44,6 +46,7 @@ namespace DustInTheWind.RandomProblems.Presentation
 
         public void DisplayBeginExport(string exportFileName)
         {
+            Console.WriteLine();
             Console.WriteLine("-> Step 3");
             Console.WriteLine($"Exporting the generated numbers to file '{exportFileName}'...");
         }
