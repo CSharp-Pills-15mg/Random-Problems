@@ -15,7 +15,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using DustInTheWind.RandomProblems.Business.RandomNumbers;
 
 namespace DustInTheWind.RandomProblems.Presentation
 {
@@ -32,9 +31,15 @@ namespace DustInTheWind.RandomProblems.Presentation
             Console.WriteLine($"Successfully generated {count:N0} lists of random numbers. Currently they are empty.");
         }
 
-        public void Display(RandomNumbersListsSet randomNumbersLists)
+        public void DisplayBeginGeneratingValues(int countPerList)
         {
-            Console.WriteLine(randomNumbersLists.ToString());
+            Console.WriteLine("-> Step 2");
+            Console.WriteLine($"Generating {countPerList:N0} numbers in each list...");
+        }
+
+        public void DisplayEndGeneratingValues(int countPerList)
+        {
+            Console.WriteLine($"Successfully generated {countPerList:N0} numbers in each list.");
         }
     }
 }

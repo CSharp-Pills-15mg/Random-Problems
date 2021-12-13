@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using DustInTheWind.RandomProblems.Business.RandomNumbers;
 using DustInTheWind.RandomProblems.Presentation;
@@ -33,8 +34,8 @@ namespace DustInTheWind.RandomProblems.Business
         public async Task Execute()
         {
             RandomNumbersListsSet randomNumbersListsSet = GenerateLists(300_000);
-            await randomNumbersListsSet.GenerateValuesInEachList(10);
-            view.Display(randomNumbersListsSet);
+            await GenerateManyValuesInParallel(randomNumbersListsSet, 10);
+            ExportAllValues(randomNumbersListsSet);
         }
 
         private RandomNumbersListsSet GenerateLists(int count)
@@ -48,6 +49,31 @@ namespace DustInTheWind.RandomProblems.Business
             finally
             {
                 view.DisplayEndGeneratingMessage(count);
+            }
+        }
+
+        private async Task GenerateManyValuesInParallel(RandomNumbersListsSet randomNumbersListsSet, int countPerList)
+        {
+            view.DisplayBeginGeneratingValues(countPerList);
+
+            try
+            {
+                await randomNumbersListsSet.GenerateValuesInEachList(countPerList);
+            }
+            finally
+            {
+                view.DisplayEndGeneratingValues(countPerList);
+            }
+        }
+
+        private static void ExportAllValues(RandomNumbersListsSet randomNumbersListsSet)
+        {
+            using StreamWriter streamWriter = new("results.txt");
+
+            foreach (RandomNumbersList randomNumbersList in randomNumbersListsSet)
+            {
+                string numbersAsString = string.Join(", ", randomNumbersList);
+                streamWriter.WriteLine(numbersAsString);
             }
         }
     }
