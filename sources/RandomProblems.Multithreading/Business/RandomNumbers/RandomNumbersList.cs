@@ -14,14 +14,34 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace DustInTheWind.RandomProblems
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace DustInTheWind.RandomProblems.Business.RandomNumbers
 {
-    internal class Program
+    internal class RandomNumbersList : IEnumerable<int>
     {
-        private static void Main(string[] args)
+        private static readonly Random Random = new();
+        private readonly List<int> numbers = new();
+        
+        public int this[int index] => numbers[index];
+
+        public int GenerateNext()
         {
-            UseCase useCase = new UseCase();
-            useCase.Execute();
+            int number = Random.Next();
+            numbers.Add(number);
+            return number;
+        }
+
+        public IEnumerator<int> GetEnumerator()
+        {
+            return numbers.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

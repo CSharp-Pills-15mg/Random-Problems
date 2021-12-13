@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomToZero", "RandomZero\RandomToZero.csproj", "{F2280144-B958-4716-A421-DC395DAC8CC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomProblems", "RandomProblems\RandomProblems.csproj", "{A75D2F13-0A5B-4224-8103-71DF896E086A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomProblems.Multithreading", "RandomProblems.Multithreading\RandomProblems.Multithreading.csproj", "{A75D2F13-0A5B-4224-8103-71DF896E086A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -14,25 +14,26 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.Collections.Generic;
-using System.Linq;
+using System;
+using System.Reflection;
 
-namespace DustInTheWind.RandomProblems
+namespace DustInTheWind.RandomProblems.Business
 {
-    internal class UseCase
+    internal class ProductInformation
     {
-        public void Execute()
-        {
-            const int count = 100_000;
+        public string Name { get; }
 
-            List<RandomNumbersList> randomNumbersLists = GenerateInstances(count);
-        }
+        public Version Version { get; }
 
-        private static List<RandomNumbersList> GenerateInstances(int count)
+        public ProductInformation()
         {
-            return Enumerable.Range(0, count)
-                .Select(x => new RandomNumbersList())
-                .ToList();
+            Assembly assembly = Assembly.GetEntryAssembly();
+
+            AssemblyProductAttribute assemblyProductAttribute = assembly?.GetCustomAttribute<AssemblyProductAttribute>();
+            Name = assemblyProductAttribute?.Product;
+
+            AssemblyName assemblyName = assembly?.GetName();
+            Version = assemblyName?.Version;
         }
     }
 }
