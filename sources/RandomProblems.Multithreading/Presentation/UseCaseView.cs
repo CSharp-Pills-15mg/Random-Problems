@@ -20,26 +20,37 @@ namespace DustInTheWind.RandomProblems.Presentation
 {
     internal class UseCaseView
     {
-        public void DisplayBeginGeneratingMessage(int count)
+        public void DisplayBeginGeneratingLists(int count)
         {
             Console.WriteLine("-> Step 1");
             Console.WriteLine($"Generating {count:N0} lists of random numbers...");
         }
 
-        public void DisplayEndGeneratingMessage(int count)
+        public void DisplayEndGeneratingLists(int count)
         {
             Console.WriteLine($"Successfully generated {count:N0} lists of random numbers. Currently they are empty.");
         }
 
-        public void DisplayBeginGeneratingValues(int countPerList)
+        public void DisplayBeginGeneratingNumbers(int countPerList)
         {
             Console.WriteLine("-> Step 2");
             Console.WriteLine($"Generating {countPerList:N0} numbers in each list...");
         }
 
-        public void DisplayEndGeneratingValues(int countPerList)
+        public void DisplayEndGeneratingNumbers(int countPerList)
         {
             Console.WriteLine($"Successfully generated {countPerList:N0} numbers in each list.");
+        }
+
+        public void DisplayBeginExport(string exportFileName)
+        {
+            Console.WriteLine("-> Step 3");
+            Console.WriteLine($"Exporting the generated numbers to file '{exportFileName}'...");
+        }
+
+        public void DisplayEndExport(string exportFileName)
+        {
+            Console.WriteLine($"Successfully exported all numbers to file '{exportFileName}'.");
         }
     }
 }

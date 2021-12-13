@@ -40,7 +40,7 @@ namespace DustInTheWind.RandomProblems.Business
 
         private RandomNumbersListsSet GenerateLists(int count)
         {
-            view.DisplayBeginGeneratingMessage(count);
+            view.DisplayBeginGeneratingLists(count);
 
             try
             {
@@ -48,13 +48,13 @@ namespace DustInTheWind.RandomProblems.Business
             }
             finally
             {
-                view.DisplayEndGeneratingMessage(count);
+                view.DisplayEndGeneratingLists(count);
             }
         }
 
         private async Task GenerateManyValuesInParallel(RandomNumbersListsSet randomNumbersListsSet, int countPerList)
         {
-            view.DisplayBeginGeneratingValues(countPerList);
+            view.DisplayBeginGeneratingNumbers(countPerList);
 
             try
             {
@@ -62,18 +62,29 @@ namespace DustInTheWind.RandomProblems.Business
             }
             finally
             {
-                view.DisplayEndGeneratingValues(countPerList);
+                view.DisplayEndGeneratingNumbers(countPerList);
             }
         }
 
-        private static void ExportAllValues(RandomNumbersListsSet randomNumbersListsSet)
+        private void ExportAllValues(RandomNumbersListsSet randomNumbersListsSet)
         {
-            using StreamWriter streamWriter = new("results.txt");
+            const string exportFileName = "results.txt";
 
-            foreach (RandomNumbersList randomNumbersList in randomNumbersListsSet)
+            view.DisplayBeginExport(exportFileName);
+
+            try
             {
-                string numbersAsString = string.Join(", ", randomNumbersList);
-                streamWriter.WriteLine(numbersAsString);
+                using StreamWriter streamWriter = new(exportFileName);
+
+                foreach (RandomNumbersList randomNumbersList in randomNumbersListsSet)
+                {
+                    string numbersAsString = string.Join(", ", randomNumbersList);
+                    streamWriter.WriteLine(numbersAsString);
+                }
+            }
+            finally
+            {
+                view.DisplayEndExport(exportFileName);
             }
         }
     }
