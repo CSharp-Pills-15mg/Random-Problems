@@ -15,10 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Threading.Tasks;
-using DustInTheWind.RandomProblems.Business;
-using DustInTheWind.RandomProblems.Presentation;
+using DustInTheWind.RandomProblems.MultiThreadingProblem.Business;
+using DustInTheWind.RandomProblems.MultiThreadingProblem.Presentation;
 
-namespace DustInTheWind.RandomProblems
+namespace DustInTheWind.RandomProblems.MultiThreadingProblem
 {
     internal class Program
     {

@@ -16,7 +16,7 @@
 
 using System;
 
-namespace DustInTheWind.RandomProblems.Presentation
+namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Presentation
 {
     internal class UseCaseView
     {

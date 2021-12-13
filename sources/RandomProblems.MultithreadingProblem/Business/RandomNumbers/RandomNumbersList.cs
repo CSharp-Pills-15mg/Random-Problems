@@ -18,7 +18,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace DustInTheWind.RandomProblems.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Business.RandomNumbers
 {
     internal class RandomNumbersList : IEnumerable<int>
     {

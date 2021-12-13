@@ -15,9 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using DustInTheWind.RandomProblems.Business;
+using DustInTheWind.RandomProblems.MultiThreadingProblem.Business;
 
-namespace DustInTheWind.RandomProblems.Presentation
+namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Presentation
 {
     internal class ApplicationHeader
     {
