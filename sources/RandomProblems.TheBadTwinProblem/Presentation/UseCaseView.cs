@@ -19,9 +19,9 @@ using System.Collections.Generic;
 using System.Linq;
 using DustInTheWind.ConsoleTools;
 using DustInTheWind.ConsoleTools.TabularData;
-using DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers;
+using DustInTheWind.RandomProblems.TheBadTwinProblem.Business.RandomNumbers;
 
-namespace DustInTheWind.RandomProblems.TheBadTwin.Presentation
+namespace DustInTheWind.RandomProblems.TheBadTwinProblem.Presentation
 {
     internal class UseCaseView
     {
