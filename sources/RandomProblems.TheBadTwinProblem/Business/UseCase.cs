@@ -16,10 +16,10 @@
 
 using System;
 using System.Collections.Generic;
-using DustInTheWind.RandomProblems.TheBadTwin.Business.RandomNumbers;
-using DustInTheWind.RandomProblems.TheBadTwin.Presentation;
+using DustInTheWind.RandomProblems.TheBadTwinProblem.Business.RandomNumbers;
+using DustInTheWind.RandomProblems.TheBadTwinProblem.Presentation;
 
-namespace DustInTheWind.RandomProblems.TheBadTwin.Business
+namespace DustInTheWind.RandomProblems.TheBadTwinProblem.Business
 {
     internal class UseCase
     {
