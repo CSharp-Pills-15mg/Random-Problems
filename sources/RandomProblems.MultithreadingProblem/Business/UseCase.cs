@@ -15,14 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using DustInTheWind.RandomProblems.MultiThreadingProblem.Business.RandomNumbers;
 using DustInTheWind.RandomProblems.MultiThreadingProblem.Presentation;
 
 namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Business
 {
-    internal class UseCase
+    internal sealed class UseCase
     {
         private readonly UseCaseView view;
 
@@ -68,23 +67,16 @@ namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Business
 
         private void ExportAllValues(RandomNumbersListsSet randomNumbersListsSet)
         {
-            const string exportFileName = "results.txt";
-
-            view.DisplayBeginExport(exportFileName);
+            using NumbersFile numbersFile = new();
+            view.DisplayBeginExport(numbersFile.FileName);
 
             try
             {
-                using StreamWriter streamWriter = new(exportFileName);
-
-                foreach (RandomNumbersList randomNumbersList in randomNumbersListsSet)
-                {
-                    string numbersAsString = string.Join(", ", randomNumbersList);
-                    streamWriter.WriteLine(numbersAsString);
-                }
+                numbersFile.Write(randomNumbersListsSet);
             }
             finally
             {
-                view.DisplayEndExport(exportFileName);
+                view.DisplayEndExport(numbersFile.FileName);
             }
         }
     }
