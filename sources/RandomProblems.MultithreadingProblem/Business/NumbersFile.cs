@@ -15,36 +15,35 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using DustInTheWind.RandomProblems.MultiThreadingProblem.Business.RandomNumbers;
 
-namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Business.RandomNumbers
+namespace DustInTheWind.RandomProblems.MultiThreadingProblem.Business
 {
-    internal class RandomNumbersList : IEnumerable<int>
+    internal sealed class NumbersFile : IDisposable
     {
-        // If the `Random` instance is static there will be problems when it is accessed from multiple
-        // threads concurrently.
-        private static readonly Random Random = new();
+        private readonly StreamWriter streamWriter;
 
-        private readonly List<int> numbers = new();
-        
-        public int this[int index] => numbers[index];
+        public string FileName => "numbers.txt";
 
-        public int GenerateNext()
+        public NumbersFile()
         {
-            int number = Random.Next();
-            numbers.Add(number);
-            return number;
+            streamWriter = new(FileName);
         }
 
-        public IEnumerator<int> GetEnumerator()
+        public void Write(IEnumerable<RandomNumbersList> lists)
         {
-            return numbers.GetEnumerator();
+            foreach (RandomNumbersList randomNumbersList in lists)
+            {
+                string numbersAsString = string.Join(", ", randomNumbersList);
+                streamWriter.WriteLine(numbersAsString);
+            }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public void Dispose()
         {
-            return GetEnumerator();
+            streamWriter?.Dispose();
         }
     }
 }
