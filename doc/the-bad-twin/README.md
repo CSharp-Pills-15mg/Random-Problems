@@ -1,5 +1,9 @@
 # The Bad Twin
 
+> !!! Work in-progress
+>
+> This article is a draft.
+
 ## Problem Description
 
 When generating a `Random` instances without providing a seed, it ends up using the timestamp of the system as seed.
